@@ -1,0 +1,41 @@
+
+
+
+
+
+plugins {
+    id 'java'
+    id 'jacoco'
+
+    id "org.sonarqube" version "2.8"
+
+    id 'maven-publish'
+}
+
+
+group 'tp9'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+
+publishing {
+    repositories {
+        maven {
+            url 'https://mymavenrepo.com/repo/G0ZOApSH2WYQPWHq0wYz/'
+            credentials {
+                username 'myMavenRepo'
+                password 'tp6outils'
+            }
+        }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
